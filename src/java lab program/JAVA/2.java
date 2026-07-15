@@ -5,6 +5,7 @@ import java.util.*;
 public class guessMyNumber {
 
     public static void main(String[] args) {
+        try {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
 
@@ -22,6 +23,10 @@ public class guessMyNumber {
             } else {
                 System.out.println("my guess is higher " + myguess + " is higher");
             }
+        }
+    } catch (Exception e) {
+            System.err.println("Critical error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

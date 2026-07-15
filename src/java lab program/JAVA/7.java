@@ -31,6 +31,7 @@ class Myarray {
 }
 class ArraySymmetry {
     public static void main(String[] args) {
+        try {
         Myarray arr1 = new Myarray();
         System.out.println("Enter the first array elements");
         arr1.readelements();
@@ -43,6 +44,10 @@ class ArraySymmetry {
             System.out.println("Arrays are Symmetrical");
         } else {
             System.out.println("Arrays are not Symmetrical");
+        }
+    } catch (Exception e) {
+            System.err.println("Critical error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

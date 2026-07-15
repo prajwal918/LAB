@@ -52,6 +52,7 @@ class Stack {
  */
 public class stackdemo {
     public static void main(String[] args) {
+        try {
         Scanner sc = new Scanner(System.in);
         Stack S = new Stack();
         
@@ -67,5 +68,9 @@ public class stackdemo {
         System.out.println("\n--- Stack Operations ---");
         S.pop();
         S.display();
+    } catch (Exception e) {
+            System.err.println("Critical error occurred: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }

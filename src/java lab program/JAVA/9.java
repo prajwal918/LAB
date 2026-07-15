@@ -46,6 +46,7 @@ class GenerateException {
 
 public class ExceptionDemo {
     public static void main(String[] args) {
+        try {
         GenerateException objl = new GenerateException();
         try {
             objl.compute();
@@ -55,6 +56,10 @@ public class ExceptionDemo {
             System.out.println("Run time Arithmetic Exception error: " + e.getMessage());
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Run time Array Index Out of Bounds Exception error: " + e.getMessage());
+        }
+    } catch (Exception e) {
+            System.err.println("Critical error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }

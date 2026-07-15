@@ -32,6 +32,7 @@ class student {
 
 public class studentdemo1 {
     public static void main(String[] args) {
+        try {
         Scanner read = new Scanner(System.in);
         System.out.println("How many Students");
         int size = read.nextInt();
@@ -52,6 +53,10 @@ public class studentdemo1 {
         System.out.println("\n enter the student details ");
         for (int i = 0; i < size; i++) {
             objs[i].display();
+        }
+    } catch (Exception e) {
+            System.err.println("Critical error occurred: " + e.getMessage());
+            e.printStackTrace();
         }
     }
 }
