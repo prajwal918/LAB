@@ -10,27 +10,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
-      continue-on-error: true
+    - uses: actions/checkout@v4
 
-    - name: Set up Java
-      continue-on-error: true
-      uses: actions/setup-java@v3
+    - uses: actions/setup-python@v4
       with:
-        distribution: 'temurin'
-        java-version: '17'
+        python-version: "3.10"
 
-    - name: Compile Java Code
-      continue-on-error: true
-      run: |
-        find src -name "*.java" -exec javac {} +
-        find tests -name "*.java" -exec javac -cp src {} +
+    - name: Install linter
+      run: pip install flake8
 
-    - name: Run Dummy Tests
-      continue-on-error: true
-      run: |
-        cd tests && java DemoTest
-
-    - name: Build Docker Image
-      continue-on-error: true
-      run: docker build || true -t lab-env .
+    - name: Syntax check
+      run: flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics --exclude=.git,__pycache__,venv,.venv
